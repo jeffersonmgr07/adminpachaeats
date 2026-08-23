@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#ef2b2d">
+  <title>Pacha Eats · Delivery en Pachacámac</title>
+  <meta name="description" content="Pacha Eats: restaurantes, mercados y comercios locales con delivery rápido en Pachacámac.">
+  <link rel="icon" href="assets/img/logos/Logo1.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-base="" class="customer-home">
+  <header class="customer-header">
+    <div class="header-main container-wide">
+      <a class="customer-brand" href="index.html" aria-label="Pacha Eats inicio">
+        <span class="brand-mark"><img src="assets/img/logos/Logo1.png" alt=""></span>
+        <span>Pacha Eats</span>
+      </a>
+
+      <button class="location-selector" type="button" data-location-button>
+        <span class="location-icon">⌖</span>
+        <span><small>Entregar en</small><strong>Pachacámac, Lima</strong></span>
+        <span class="chevron">⌄</span>
+      </button>
+
+      <label class="global-search">
+        <span>⌕</span>
+        <input id="globalSearch" type="search" autocomplete="off" placeholder="Busca restaurantes, platos o productos">
+      </label>
+
+      <a class="header-account" href="clientes/login.html"><span>◎</span><span><small>Hola</small><strong>Ingresa</strong></span></a>
+      <a class="header-cart" href="checkout.html" aria-label="Carrito"><span>🛒</span><b data-cart-count>0</b></a>
+    </div>
+
+    <div class="header-categories">
+      <nav class="container-wide quick-links" aria-label="Navegación principal">
+        <a class="active" href="index.html">Inicio</a>
+        <a href="#restaurantsSection">Restaurantes</a>
+        <a href="#marketSection">Market</a>
+        <a href="#promosSection">Promos</a>
+        <a href="seguimiento-pedido.html">Rastrear pedido</a>
+        <a class="prime-link" href="clientes/prime.html">✦ Pacha+</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="delivery-hero container-wide">
+      <div class="hero-stage" id="heroStage">
+        <article class="hero-slide is-active" style="--hero:url('assets/img/banners/Banner1.png')">
+          <div class="hero-content">
+            <span class="hero-kicker">Pacha Eats · delivery local</span>
+            <h1>Todo lo que te provoca, <em>a un toque.</em></h1>
+            <p>Comida, antojos y tiendas locales con entrega rápida en Pachacámac.</p>
+            <div class="hero-actions">
+              <a class="btn btn-white" href="#restaurantsSection">Pedir ahora</a>
+              <button class="btn btn-ghost-white" type="button" data-location-button>Usar mi ubicación</button>
+            </div>
+          </div>
+          <div class="hero-offer"><small>Primera compra</small><strong>Delivery GRATIS</strong><span>hasta S/ 6 en pedidos desde S/ 35</span></div>
+        </article>
+        <article class="hero-slide" style="--hero:url('assets/img/banners/Banner2.png')">
+          <div class="hero-content">
+            <span class="hero-kicker">Ofertas cerca de ti</span>
+            <h2>Promos que sí dan hambre.</h2>
+            <p>Descubre combos y descuentos de comercios aliados de tu zona.</p>
+            <a class="btn btn-white" href="#promosSection">Ver promociones</a>
+          </div>
+        </article>
+        <article class="hero-slide" style="--hero:url('assets/img/banners/Banner3.png')">
+          <div class="hero-content">
+            <span class="hero-kicker">Pacha+ beneficios</span>
+            <h2>Más pedidos. Menos delivery.</h2>
+            <p>Beneficios exclusivos y campañas de envío subsidiado.</p>
+            <a class="btn btn-white" href="clientes/prime.html">Conocer Pacha+</a>
+          </div>
+        </article>
+        <button class="hero-arrow prev" aria-label="Banner anterior">‹</button>
+        <button class="hero-arrow next" aria-label="Banner siguiente">›</button>
+        <div class="hero-dots" aria-label="Selector de banner"></div>
+      </div>
+    </section>
+
+    <section class="section-block container-wide">
+      <div class="section-heading">
+        <div><span class="eyebrow">¿Qué necesitas hoy?</span><h2>Explora por categoría</h2></div>
+        <a href="productos.html">Ver todo <span>→</span></a>
+      </div>
+      <div class="category-strip" id="categories"></div>
+    </section>
+
+    <section class="section-block container-wide" id="marketSection">
+      <div class="vertical-grid">
+        <a class="vertical-card food" href="#restaurantsSection"><span class="vertical-icon">🍔</span><span><strong>Restaurantes</strong><small>Tu comida favorita</small></span><b>→</b></a>
+        <a class="vertical-card market" href="productos.html"><span class="vertical-icon">🛍️</span><span><strong>Market</strong><small>Abarrotes y hogar</small></span><b>→</b></a>
+        <a class="vertical-card pharmacy" href="productos.html"><span class="vertical-icon">✚</span><span><strong>Farmacia</strong><small>Venta libre y cuidado</small></span><b>→</b></a>
+        <a class="vertical-card stores" href="productos.html"><span class="vertical-icon">✨</span><span><strong>Tiendas</strong><small>Más comercios locales</small></span><b>→</b></a>
+      </div>
+    </section>
+
+    <section class="section-block container-wide" id="promosSection">
+      <div class="section-heading">
+        <div><span class="eyebrow">Aprovecha antes que vuelen</span><h2>Promociones para ti</h2></div>
+      </div>
+      <div class="promo-grid">
+        <a class="promo-banner promo-red" href="clientes/prime.html"><span class="promo-pill">Pacha+</span><h3>Envíos desde S/ 0</h3><p>En comercios seleccionados y campañas activas.</p><strong>Ver beneficios →</strong></a>
+        <a class="promo-banner promo-yellow" href="#restaurantsSection"><span class="promo-pill dark">Nuevos usuarios</span><h3>Hasta 20% OFF</h3><p>Descubre los aliados con descuentos de lanzamiento.</p><strong>Explorar →</strong></a>
+        <a class="promo-banner promo-dark" href="seguimiento-pedido.html"><span class="promo-pill light">En vivo</span><h3>Sigue tu pedido</h3><p>Consulta el estado desde preparación hasta entrega.</p><strong>Rastrear →</strong></a>
+      </div>
+    </section>
+
+    <section class="section-block container-wide" id="restaurantsSection">
+      <div class="section-heading">
+        <div><span class="eyebrow">Cerca de Pachacámac</span><h2>Restaurantes que te pueden gustar</h2></div>
+        <a href="restaurantes.html">Ver todos <span>→</span></a>
+      </div>
+      <div class="restaurant-filter-row" id="restaurantFilters">
+        <button class="is-active" data-filter="all">Todos</button>
+        <button data-filter="prime">Envío promo</button>
+        <button data-filter="Pollos">Pollos</button>
+        <button data-filter="Chifa">Chifa</button>
+        <button data-filter="Alitas">Alitas</button>
+        <button data-filter="Postres">Postres</button>
+      </div>
+      <div class="restaurant-grid-modern" id="restaurants"></div>
+    </section>
+
+    <section class="section-block container-wide">
+      <div class="section-heading">
+        <div><span class="eyebrow">Los favoritos del momento</span><h2>Popular cerca de ti</h2></div>
+        <a href="productos.html">Ver carta <span>→</span></a>
+      </div>
+      <div class="product-grid-modern" id="products"></div>
+    </section>
+
+    <section class="trust-section container-wide">
+      <div class="trust-copy"><span class="eyebrow">Hecho para el delivery local</span><h2>Compra fácil, seguimiento claro.</h2><p>Pacha Eats está preparado para unificar comercios, repartidores y clientes en una sola operación.</p></div>
+      <div class="trust-points"><div><span>01</span><strong>Precio transparente</strong><small>Ves delivery y total antes de confirmar.</small></div><div><span>02</span><strong>Entrega verificada</strong><small>Flujo preparado para PIN de entrega.</small></div><div><span>03</span><strong>Soporte local</strong><small>Incidencias centralizadas en la plataforma.</small></div></div>
+    </section>
+  </main>
+
+  <footer class="customer-footer">
+    <div class="container-wide footer-main">
+      <div class="footer-brand"><img src="assets/img/logos/Logo2.png" alt="Pacha Eats"><p>Delivery local, simple y cercano.</p></div>
+      <div><h4>Pacha Eats</h4><a href="restaurantes.html">Restaurantes</a><a href="productos.html">Productos</a><a href="clientes/prime.html">Pacha+</a></div>
+      <div><h4>Ayuda</h4><a href="seguimiento-pedido.html">Rastrear pedido</a><a href="clientes/perfil.html">Mi cuenta</a><a href="#">Centro de ayuda</a></div>
+      <div><h4>Quiero ser aliado</h4><a href="restaurantes/index.html">Soy restaurante</a><a href="repartidores/index.html">Soy repartidor</a><a href="admin/index.html">Administración</a></div>
+    </div>
+    <div class="container-wide footer-bottom"><span>© 2026 Pacha Eats</span><span>Demo MVP · Pachacámac, Lima</span></div>
+  </footer>
+
+  <nav class="mobile-bottom-nav" aria-label="Navegación móvil">
+    <a class="active" href="index.html"><span>⌂</span>Inicio</a>
+    <a href="#restaurantsSection"><span>⌕</span>Buscar</a>
+    <a href="seguimiento-pedido.html"><span>▣</span>Pedidos</a>
+    <a href="clientes/perfil.html"><span>◎</span>Cuenta</a>
+  </nav>
+
+  <div class="location-modal" id="locationModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-location></div>
+    <div class="location-sheet" role="dialog" aria-modal="true" aria-labelledby="locationTitle">
+      <button class="modal-close" data-close-location aria-label="Cerrar">×</button>
+      <span class="eyebrow">¿Dónde te entregamos?</span>
+      <h2 id="locationTitle">Ingresa tu dirección</h2>
+      <p>En producción aquí conectaremos geolocalización y zonas de cobertura.</p>
+      <label class="location-input"><span>⌖</span><input id="addressInput" placeholder="Ej. Plaza de Armas de Pachacámac"></label>
+      <div class="location-suggestions"><button data-address="Pachacámac Pueblo">⌂ Pachacámac Pueblo</button><button data-address="Manchay">⌖ Manchay</button><button data-address="Lurín">⌖ Lurín</button></div>
+      <button class="btn btn-primary full" id="saveLocation">Confirmar ubicación</button>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script>initCustomerHome()</script>
+</body>
+</html>
