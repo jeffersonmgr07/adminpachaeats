@@ -1,0 +1,17 @@
+{
+  "name": "Pacha Eats",
+  "short_name": "Pacha Eats",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e31b23",
+  "description": "Marketplace local de delivery",
+  "icons": [
+    {
+      "src": "./pacha-eats-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
