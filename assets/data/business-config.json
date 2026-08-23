@@ -1,0 +1,29 @@
+{
+  "currency": "PEN",
+  "currencySymbol": "S/",
+  "launchStage": {
+    "name": "Lanzamiento 0% comisión",
+    "months": 3,
+    "restaurantCommission": 0,
+    "riderCommission": 0
+  },
+  "growthStage": {
+    "name": "Crecimiento controlado",
+    "months": "4-6",
+    "restaurantCommission": 0.05,
+    "riderCommission": 0
+  },
+  "standardStage": {
+    "name": "Monetización estándar",
+    "restaurantCommissionMin": 0.1,
+    "restaurantCommissionMax": 0.15,
+    "riderCommissionMin": 0.05,
+    "riderCommissionMax": 0.1
+  },
+  "prime": {
+    "name": "Pacha Prime",
+    "monthlyPrice": 9.9,
+    "deliverySubsidyMax": 6,
+    "minimumOrder": 35
+  }
+}

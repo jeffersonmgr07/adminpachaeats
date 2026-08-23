@@ -1,0 +1,110 @@
+[
+  {
+    "id": "pollobrasa-1-4",
+    "restaurantId": "qori-chicken",
+    "name": "1/4 pollo a la brasa",
+    "category": "Pollos",
+    "price": 18.9,
+    "before": 22.9,
+    "image": "assets/img/categorias/Familiares.png",
+    "available": true,
+    "primeDeal": true,
+    "description": "Con papas crocantes, ensalada y cremas de la casa."
+  },
+  {
+    "id": "combo-familiar-qori",
+    "restaurantId": "qori-chicken",
+    "name": "Combo familiar Qori",
+    "category": "Familiares",
+    "price": 59.9,
+    "before": 72.0,
+    "image": "assets/img/categorias/Banquetes.png",
+    "available": true,
+    "primeDeal": false,
+    "description": "Pollo entero, papas familiares, ensalada, gaseosa y cremas."
+  },
+  {
+    "id": "chijaukay",
+    "restaurantId": "pacha-wok",
+    "name": "Chijaukay con arroz chaufa",
+    "category": "Chifa",
+    "price": 24.9,
+    "before": 29.9,
+    "image": "assets/img/productos/pacha-wok/Chijaukay.jpg",
+    "available": true,
+    "primeDeal": true,
+    "description": "Pollo oriental bañado en salsa especial con chaufa."
+  },
+  {
+    "id": "chaufa-familiar",
+    "restaurantId": "pacha-wok",
+    "name": "Chaufa familiar",
+    "category": "Chifa",
+    "price": 39.9,
+    "before": 46.0,
+    "image": "assets/img/categorias/Duos.png",
+    "available": true,
+    "primeDeal": false,
+    "description": "Porción familiar de arroz chaufa con pollo y verduras."
+  },
+  {
+    "id": "alitas-bbq",
+    "restaurantId": "jijunas",
+    "name": "Alitas BBQ",
+    "category": "Alitas",
+    "price": 27.9,
+    "before": 34.9,
+    "image": "assets/img/productos/jijunas/Alitas BBQ.jpg",
+    "available": true,
+    "primeDeal": true,
+    "description": "Alitas bañadas en salsa BBQ con papas."
+  },
+  {
+    "id": "alitas-buffalo",
+    "restaurantId": "jijunas",
+    "name": "Alitas Buffalo",
+    "category": "Alitas",
+    "price": 29.9,
+    "before": 35.9,
+    "image": "assets/img/productos/jijunas/Alitas Buffalo.jpg",
+    "available": true,
+    "primeDeal": false,
+    "description": "Picante medio, papas y salsa ranch."
+  },
+  {
+    "id": "costillitas-bbq",
+    "restaurantId": "jijunas",
+    "name": "Costillitas BBQ",
+    "category": "Costillas",
+    "price": 38.9,
+    "before": 46.9,
+    "image": "assets/img/productos/jijunas/Costillitas BBQ.jpg",
+    "available": true,
+    "primeDeal": true,
+    "description": "Costillitas glaseadas con papas crocantes."
+  },
+  {
+    "id": "maracuya",
+    "restaurantId": "dulces-rosita",
+    "name": "Maracuyá 900 ml",
+    "category": "Bebidas",
+    "price": 9.9,
+    "before": 12.0,
+    "image": "assets/img/productos/bebidas/Maracuya 900 ml.jpg",
+    "available": true,
+    "primeDeal": false,
+    "description": "Refresco natural de maracuyá."
+  },
+  {
+    "id": "papas-grande",
+    "restaurantId": "jijunas",
+    "name": "Porción de papas grande",
+    "category": "Extras",
+    "price": 12.9,
+    "before": 15.0,
+    "image": "assets/img/productos/jijunas/papas-grande.jpg",
+    "available": true,
+    "primeDeal": false,
+    "description": "Papas crocantes para compartir."
+  }
+]

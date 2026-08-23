@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Promociones",
+    "image": "assets/img/categorias/Promociones.png",
+    "filter": "prime"
+  },
+  {
+    "name": "Alitas",
+    "image": "assets/img/categorias/Alitas.png",
+    "filter": "Alitas"
+  },
+  {
+    "name": "Familiares",
+    "image": "assets/img/categorias/Familiares.png",
+    "filter": "Familiares"
+  },
+  {
+    "name": "Hamburguesas",
+    "image": "assets/img/categorias/Hamburguesas.png",
+    "filter": "Hamburguesas"
+  },
+  {
+    "name": "Banquetes",
+    "image": "assets/img/categorias/Banquetes.png",
+    "filter": "Banquetes"
+  },
+  {
+    "name": "Dúos",
+    "image": "assets/img/categorias/Duos.png",
+    "filter": "Dúos"
+  }
+]

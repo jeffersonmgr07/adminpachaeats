@@ -1,0 +1,23 @@
+[
+  {
+    "id": "welcome",
+    "title": "Primera compra",
+    "description": "Delivery gratis hasta S/ 6 en pedidos desde S/ 35.",
+    "code": "PACHA1",
+    "type": "cliente"
+  },
+  {
+    "id": "prime50",
+    "title": "Pacha Prime",
+    "description": "Promos hasta 50% en stock limitado de restaurantes aliados.",
+    "code": "PRIME",
+    "type": "prime"
+  },
+  {
+    "id": "launch",
+    "title": "Aliados 0% comisión",
+    "description": "Restaurantes y repartidores reciben 100% en etapa de lanzamiento.",
+    "code": "LANZAMIENTO",
+    "type": "aliados"
+  }
+]

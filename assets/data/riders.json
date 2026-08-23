@@ -1,0 +1,29 @@
+[
+  {
+    "id": "RID-001",
+    "name": "Luis Motorizado",
+    "vehicle": "Moto lineal",
+    "plate": "ABC-123",
+    "status": "Disponible",
+    "score": 4.8,
+    "earnings": 128.5
+  },
+  {
+    "id": "RID-002",
+    "name": "Andrea Auto",
+    "vehicle": "Auto",
+    "plate": "B7X-904",
+    "status": "En ruta",
+    "score": 4.9,
+    "earnings": 210.0
+  },
+  {
+    "id": "RID-003",
+    "name": "Marco Bike",
+    "vehicle": "Bicicleta",
+    "plate": "Sin placa",
+    "status": "Validación",
+    "score": 0,
+    "earnings": 0
+  }
+]

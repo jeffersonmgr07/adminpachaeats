@@ -1,0 +1,32 @@
+[
+  {
+    "id": "PE-1001",
+    "customer": "María Fernanda",
+    "restaurant": "Qori Chicken",
+    "status": "preparing",
+    "total": 68.8,
+    "delivery": 6.0,
+    "rider": "Sin asignar",
+    "payment": "Yape / pendiente"
+  },
+  {
+    "id": "PE-1002",
+    "customer": "Carlos R.",
+    "restaurant": "Jijuna's",
+    "status": "ready",
+    "total": 42.9,
+    "delivery": 7.0,
+    "rider": "Luis Motorizado",
+    "payment": "Efectivo"
+  },
+  {
+    "id": "PE-1003",
+    "customer": "Ana P.",
+    "restaurant": "Pacha Wok",
+    "status": "delivering",
+    "total": 35.4,
+    "delivery": 5.5,
+    "rider": "Andrea Auto",
+    "payment": "Mercado Pago / sandbox"
+  }
+]

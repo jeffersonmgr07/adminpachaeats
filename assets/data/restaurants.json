@@ -1,0 +1,131 @@
+[
+  {
+    "id": "qori-chicken",
+    "name": "Qori Chicken",
+    "slug": "qori-chicken",
+    "category": "Pollos a la brasa",
+    "rating": 4.8,
+    "reviews": 284,
+    "deliveryTime": "25-35 min",
+    "deliveryFee": 6.0,
+    "distance": "1.2 km",
+    "isOpen": true,
+    "prime": true,
+    "logo": "assets/img/logos/restaurantes/Qori Chicken.png",
+    "cover": "assets/img/banners/Banner1.png",
+    "address": "Av. Pachacútec 120, Pachacámac",
+    "commissionStage": "0% lanzamiento",
+    "tags": [
+      "Top ventas",
+      "Prime",
+      "Familiar"
+    ],
+    "schedule": {
+      "mon_fri": "11:00 - 22:30",
+      "sat_sun": "10:30 - 23:00"
+    }
+  },
+  {
+    "id": "pacha-wok",
+    "name": "Pacha Wok",
+    "slug": "pacha-wok",
+    "category": "Chifa y oriental",
+    "rating": 4.7,
+    "reviews": 198,
+    "deliveryTime": "30-40 min",
+    "deliveryFee": 5.5,
+    "distance": "1.8 km",
+    "isOpen": true,
+    "prime": true,
+    "logo": "assets/img/logos/restaurantes/Pacha Wok.png",
+    "cover": "assets/img/banners/Banner2.png",
+    "address": "Zona Casablanca, Pachacámac",
+    "commissionStage": "0% lanzamiento",
+    "tags": [
+      "Chifa",
+      "Combo",
+      "Prime"
+    ],
+    "schedule": {
+      "mon_fri": "12:00 - 22:00",
+      "sat_sun": "12:00 - 23:00"
+    }
+  },
+  {
+    "id": "jijunas",
+    "name": "Jijuna's",
+    "slug": "jijunas",
+    "category": "Alitas y costillas",
+    "rating": 4.9,
+    "reviews": 341,
+    "deliveryTime": "20-35 min",
+    "deliveryFee": 7.0,
+    "distance": "2.4 km",
+    "isOpen": true,
+    "prime": true,
+    "logo": "assets/img/logos/restaurantes/Jijunas.png",
+    "cover": "assets/img/banners/Banner3.png",
+    "address": "Centro de Pachacámac",
+    "commissionStage": "0% lanzamiento",
+    "tags": [
+      "Alitas",
+      "Costillas",
+      "Hot"
+    ],
+    "schedule": {
+      "mon_fri": "16:00 - 23:00",
+      "sat_sun": "13:00 - 23:30"
+    }
+  },
+  {
+    "id": "dulces-rosita",
+    "name": "Dulces Rosita",
+    "slug": "dulces-rosita",
+    "category": "Postres y bebidas",
+    "rating": 4.6,
+    "reviews": 112,
+    "deliveryTime": "20-30 min",
+    "deliveryFee": 4.5,
+    "distance": "0.9 km",
+    "isOpen": true,
+    "prime": false,
+    "logo": "assets/img/logos/restaurantes/Dulces Rosita.png",
+    "cover": "assets/img/banners/Promo1.png",
+    "address": "Pachacámac Pueblo",
+    "commissionStage": "0% lanzamiento",
+    "tags": [
+      "Postres",
+      "Café",
+      "Nuevo"
+    ],
+    "schedule": {
+      "mon_fri": "09:00 - 20:00",
+      "sat_sun": "09:00 - 21:00"
+    }
+  },
+  {
+    "id": "delipizza",
+    "name": "Delipizza",
+    "slug": "delipizza",
+    "category": "Pizzas",
+    "rating": 4.5,
+    "reviews": 156,
+    "deliveryTime": "35-45 min",
+    "deliveryFee": 6.5,
+    "distance": "2.9 km",
+    "isOpen": false,
+    "prime": false,
+    "logo": "assets/img/logos/restaurantes/Delipizza.png",
+    "cover": "assets/img/banners/Promo2.png",
+    "address": "Manchay Bajo",
+    "commissionStage": "0% lanzamiento",
+    "tags": [
+      "Pizza",
+      "Familiar"
+    ],
+    "schedule": {
+      "mon_fri": "17:00 - 23:00",
+      "sat_sun": "12:00 - 23:30"
+    }
+  }
+]
