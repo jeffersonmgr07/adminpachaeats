@@ -9,7 +9,55 @@
     "image": "assets/img/categorias/Familiares.png",
     "available": true,
     "primeDeal": true,
-    "description": "Con papas crocantes, ensalada y cremas de la casa."
+    "description": "Con papas crocantes, ensalada y cremas de la casa.",
+    "modifierGroups": [
+      {
+        "id": "cremas",
+        "name": "Elige tus cremas",
+        "min": 1,
+        "max": 3,
+        "options": [
+          {
+            "id": "aji",
+            "name": "Ají de la casa",
+            "price": 0
+          },
+          {
+            "id": "mayonesa",
+            "name": "Mayonesa",
+            "price": 0
+          },
+          {
+            "id": "ketchup",
+            "name": "Ketchup",
+            "price": 0
+          },
+          {
+            "id": "rocoto",
+            "name": "Rocoto",
+            "price": 0
+          }
+        ]
+      },
+      {
+        "id": "extra-papas",
+        "name": "¿Quieres agrandar tus papas?",
+        "min": 0,
+        "max": 1,
+        "options": [
+          {
+            "id": "regular",
+            "name": "Mantener porción regular",
+            "price": 0
+          },
+          {
+            "id": "grande",
+            "name": "Papas grandes",
+            "price": 5.0
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "combo-familiar-qori",
@@ -21,7 +69,32 @@
     "image": "assets/img/categorias/Banquetes.png",
     "available": true,
     "primeDeal": false,
-    "description": "Pollo entero, papas familiares, ensalada, gaseosa y cremas."
+    "description": "Pollo entero, papas familiares, ensalada, gaseosa y cremas.",
+    "modifierGroups": [
+      {
+        "id": "gaseosa",
+        "name": "Elige tu gaseosa",
+        "min": 1,
+        "max": 1,
+        "options": [
+          {
+            "id": "inca",
+            "name": "Inca Kola",
+            "price": 0
+          },
+          {
+            "id": "coca",
+            "name": "Coca-Cola",
+            "price": 0
+          },
+          {
+            "id": "pepsi",
+            "name": "Pepsi",
+            "price": 0
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "chijaukay",
@@ -33,7 +106,45 @@
     "image": "assets/img/productos/pacha-wok/Chijaukay.jpg",
     "available": true,
     "primeDeal": true,
-    "description": "Pollo oriental bañado en salsa especial con chaufa."
+    "description": "Pollo oriental bañado en salsa especial con chaufa.",
+    "modifierGroups": [
+      {
+        "id": "chaufa",
+        "name": "Tipo de chaufa",
+        "min": 1,
+        "max": 1,
+        "options": [
+          {
+            "id": "pollo",
+            "name": "Chaufa de pollo",
+            "price": 0
+          },
+          {
+            "id": "especial",
+            "name": "Chaufa especial",
+            "price": 4.0
+          }
+        ]
+      },
+      {
+        "id": "bebida",
+        "name": "Agrega una bebida",
+        "min": 0,
+        "max": 1,
+        "options": [
+          {
+            "id": "inca",
+            "name": "Inca Kola 600 ml",
+            "price": 5.5
+          },
+          {
+            "id": "coca",
+            "name": "Coca-Cola 600 ml",
+            "price": 5.5
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "chaufa-familiar",
@@ -45,7 +156,8 @@
     "image": "assets/img/categorias/Duos.png",
     "available": true,
     "primeDeal": false,
-    "description": "Porción familiar de arroz chaufa con pollo y verduras."
+    "description": "Porción familiar de arroz chaufa con pollo y verduras.",
+    "modifierGroups": []
   },
   {
     "id": "alitas-bbq",
@@ -57,7 +169,50 @@
     "image": "assets/img/productos/jijunas/Alitas BBQ.jpg",
     "available": true,
     "primeDeal": true,
-    "description": "Alitas bañadas en salsa BBQ con papas."
+    "description": "Alitas bañadas en salsa BBQ con papas.",
+    "modifierGroups": [
+      {
+        "id": "porcion",
+        "name": "Elige la porción",
+        "min": 1,
+        "max": 1,
+        "options": [
+          {
+            "id": "6",
+            "name": "6 alitas",
+            "price": 0
+          },
+          {
+            "id": "12",
+            "name": "12 alitas",
+            "price": 18.0
+          }
+        ]
+      },
+      {
+        "id": "salsas",
+        "name": "Salsas extra",
+        "min": 0,
+        "max": 2,
+        "options": [
+          {
+            "id": "ranch",
+            "name": "Ranch",
+            "price": 2.0
+          },
+          {
+            "id": "bbq-extra",
+            "name": "BBQ extra",
+            "price": 2.0
+          },
+          {
+            "id": "acevichada",
+            "name": "Acevichada",
+            "price": 2.5
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "alitas-buffalo",
@@ -69,7 +224,45 @@
     "image": "assets/img/productos/jijunas/Alitas Buffalo.jpg",
     "available": true,
     "primeDeal": false,
-    "description": "Picante medio, papas y salsa ranch."
+    "description": "Picante medio, papas y salsa ranch.",
+    "modifierGroups": [
+      {
+        "id": "porcion",
+        "name": "Elige la porción",
+        "min": 1,
+        "max": 1,
+        "options": [
+          {
+            "id": "6",
+            "name": "6 alitas",
+            "price": 0
+          },
+          {
+            "id": "12",
+            "name": "12 alitas",
+            "price": 18.0
+          }
+        ]
+      },
+      {
+        "id": "picante",
+        "name": "Nivel de picante",
+        "min": 1,
+        "max": 1,
+        "options": [
+          {
+            "id": "medio",
+            "name": "Medio",
+            "price": 0
+          },
+          {
+            "id": "alto",
+            "name": "Alto",
+            "price": 0
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "costillitas-bbq",
@@ -81,7 +274,8 @@
     "image": "assets/img/productos/jijunas/Costillitas BBQ.jpg",
     "available": true,
     "primeDeal": true,
-    "description": "Costillitas glaseadas con papas crocantes."
+    "description": "Costillitas glaseadas con papas crocantes.",
+    "modifierGroups": []
   },
   {
     "id": "maracuya",
@@ -93,7 +287,8 @@
     "image": "assets/img/productos/bebidas/Maracuya 900 ml.jpg",
     "available": true,
     "primeDeal": false,
-    "description": "Refresco natural de maracuyá."
+    "description": "Refresco natural de maracuyá.",
+    "modifierGroups": []
   },
   {
     "id": "papas-grande",
@@ -105,6 +300,7 @@
     "image": "assets/img/productos/jijunas/papas-grande.jpg",
     "available": true,
     "primeDeal": false,
-    "description": "Papas crocantes para compartir."
+    "description": "Papas crocantes para compartir.",
+    "modifierGroups": []
   }
 ]
