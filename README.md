@@ -1,84 +1,116 @@
-# Pacha Eats — Fase 1 profesional unificada
+# Pacha Eats — Fase 2 · flujo operativo conectado
 
-Esta versión toma como base el proyecto original de Pacha Eats y lo reorganiza como un sistema con entradas separadas por rol, listo para visualizar directamente en GitHub Pages.
-
-## Entradas principales
+Esta versión continúa sobre el proyecto original de Pacha Eats y mantiene tres entradas separadas por rol:
 
 - `index.html` — marketplace para clientes.
-- `restaurantes/index.html` — acceso exclusivo para restaurantes/comercios.
-- `repartidores/index.html` — acceso exclusivo para repartidores.
-- `admin/index.html` — acceso administrativo existente.
+- `restaurantes/index.html` — portal de restaurantes/comercios.
+- `repartidores/index.html` — portal de repartidores.
+- `admin/index.html` — área administrativa existente.
 
-## Qué funciona en esta fase
+## Qué se implementó en la Fase 2
 
 ### Cliente
-- Home responsive y mobile-first.
-- Banners, categorías, verticales, promociones, restaurantes y productos.
-- Búsqueda visual en home.
-- Selector de ubicación demo persistente en `localStorage`.
-- Carrito persistente y regla de un comercio por carrito.
-- Enlaces a catálogo, restaurante, checkout y seguimiento existentes.
+
+- Modal profesional de producto.
+- Variantes y complementos obligatorios u opcionales.
+- Selección única o múltiple, límites máximos y recargos.
+- Cantidad e indicaciones para el restaurante.
+- Carrito persistente de un solo comercio.
+- Resumen con subtotal, delivery y estimación de cashback.
+- Checkout renovado.
+- Creación de pedido demo con código `PE-XXXXXX`.
+- PIN de entrega de 4 dígitos.
+- Seguimiento dinámico del pedido.
 
 ### Restaurante
-- Portal de ingreso independiente.
-- Dashboard profesional.
-- Estado abierto/pausado demo.
-- Pedidos, menú, promociones y ventas.
-- Lectura de los JSON ya existentes para datos demo.
+
+- Selección del restaurante demo al iniciar sesión.
+- Dashboard conectado a pedidos creados desde la web del cliente.
+- Flujo operativo:
+  - Pendiente de restaurante.
+  - Aceptado.
+  - En preparación.
+  - Listo para recojo.
+- Visualización de productos, extras, notas, dirección, pago y total.
+- Los pedidos listos quedan visibles para el repartidor.
 
 ### Repartidor
-- Portal de ingreso independiente.
-- Dashboard profesional.
-- Estado disponible/no disponible demo.
-- Oferta de reparto visual.
-- Historial, ganancias y documentos.
 
-## Ejecutar localmente
+- Recepción de ofertas cuando el restaurante marca un pedido como listo.
+- Aceptación de entrega.
+- Confirmación de recojo.
+- Cambio a `En camino`.
+- Entrega validada con PIN del cliente.
+- Historial demo de entregas completadas.
+- Ganancia demo calculada por delivery.
 
-No requiere Node, npm ni compilación.
+## Persistencia de demostración
 
-Desde la carpeta raíz:
+La Fase 2 usa `localStorage` para simular una operación compartida entre cliente, comercio y repartidor dentro del mismo navegador/origen.
+
+Claves principales:
+
+- `pe_cart`
+- `pe_demo_orders_v2`
+- `pe_last_order`
+- `pe_restaurant_demo_id`
+
+Esta capa está pensada como adaptador temporal. La siguiente integración sustituirá esta persistencia por Apps Script + Google Sheets sin cambiar el contrato visual del flujo.
+
+## Cómo probar el circuito completo
+
+1. Iniciar servidor local desde la raíz:
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Abrir:
-
-- Cliente: `http://localhost:8080/`
-- Restaurantes: `http://localhost:8080/restaurantes/`
-- Repartidores: `http://localhost:8080/repartidores/`
-
-> No abrir los HTML con `file://`, porque los JSON se cargan mediante `fetch()` y el navegador puede bloquearlos.
-
-## Publicar en GitHub Pages
-
-1. Subir todos los archivos conservando la estructura.
-2. En GitHub: **Settings → Pages**.
-3. En **Build and deployment**, seleccionar **Deploy from a branch**.
-4. Elegir la rama `main` y la carpeta `/ (root)`.
-5. Guardar.
-
-La raíz del repositorio mostrará automáticamente el `index.html` del cliente.
+2. Abrir `http://localhost:8080/`.
+3. Entrar a un restaurante, preferiblemente Qori Chicken.
+4. Abrir un producto, seleccionar sus extras y agregarlo.
+5. Ir al checkout y crear el pedido.
+6. Copiar el código y observar su seguimiento.
+7. Abrir `http://localhost:8080/restaurantes/` en otra pestaña.
+8. Elegir el mismo restaurante utilizado en el pedido.
+9. Aceptar → iniciar preparación → marcar listo.
+10. Abrir `http://localhost:8080/repartidores/`.
+11. Aceptar la oferta → confirmar recojo → iniciar entrega.
+12. Usar el PIN mostrado en el seguimiento del cliente para confirmar la entrega.
+13. Volver al seguimiento para ver el estado `Entregado`.
 
 ## Accesos demo
 
-Restaurante:
-- `restaurante@pachaeats.demo`
-- `demo123`
+### Restaurante
 
-Repartidor:
-- `rider@pachaeats.demo`
-- `demo123`
+- Correo: `restaurante@pachaeats.demo`
+- Contraseña: `demo123`
 
-En esta fase son demostrativos y no validan credenciales. La autenticación real se conectará después.
+### Repartidor
 
-## Próxima fase recomendada
+- Correo: `rider@pachaeats.demo`
+- Contraseña: `demo123`
 
-1. Modal de producto con variantes/complementos obligatorios.
-2. Carrito mejorado y cotización backend.
-3. Login real por roles.
-4. Google Apps Script + Sheets con RBAC.
-5. Creación y estados reales de pedidos.
-6. Despacho de repartidores con bloqueo atómico.
-7. Mercado Pago + Webhooks idempotentes.
+Las credenciales aún son visuales; no existe autenticación productiva en esta fase.
+
+## GitHub Pages
+
+No requiere Node ni compilación. Mantén `index.html` en la raíz del repositorio y publica desde `main / root`.
+
+## Documentación viva
+
+Consultar `docs/INDICE_DOCUMENTACION.md`.
+
+La documentación incluye ficha técnica general, ficha de la Fase 2, notas de manual, material de capacitación por rol y registro de cambios.
+
+## Próximo avance recomendado
+
+La Fase 3 debe mover la operación de pedidos desde `localStorage` a Apps Script + Google Sheets e incorporar:
+
+1. autenticación y sesiones por roles;
+2. RBAC en backend;
+3. creación de pedidos idempotente;
+4. eventos históricos de estado;
+5. bloqueo atómico al aceptar un reparto;
+6. catálogo editable por comercio;
+7. base de notificaciones;
+8. preparación para Mercado Pago y Webhooks.

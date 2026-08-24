@@ -1,27 +1,58 @@
-# Roadmap Pacha Eats
+# Roadmap — Pacha Eats
 
-## Etapa 1 — V1 estática pre-backend
-- Reordenar proyecto.
-- Mantener estilo visual Pacha Eats.
-- Crear paneles por rol.
-- Carrito y checkout simulado.
-- Datos en JSON.
+## Fase 1 — Unificación visual y entradas por rol ✅
 
-## Etapa 2 — Backend MVP
-- Autenticación por rol.
-- Base de datos para usuarios, restaurantes, platos, pedidos y repartidores.
-- Estados de pedido.
-- Asignación manual de repartidor desde admin.
-- Pagos manuales: efectivo, Yape, Plin.
+- Marketplace cliente.
+- Portal restaurante.
+- Portal repartidor.
+- Base administrativa.
 
-## Etapa 3 — Pagos y operación real
-- Integración con Mercado Pago, Niubiz o EasyPay.
-- Webhooks de pago.
-- Liquidaciones a restaurantes/repartidores.
-- Cupones reales y Pacha Prime.
+## Fase 2 — Circuito demo de pedido ✅
 
-## Etapa 4 — App avanzada
-- Tracking en mapa.
-- Notificaciones WhatsApp/email/push.
-- Asignación automática de repartidores.
-- Ratings, reclamos y soporte.
+- Configurador de producto.
+- Carrito mejorado.
+- Checkout.
+- Pedido persistido localmente.
+- Operación del restaurante.
+- Oferta y entrega del repartidor.
+- PIN y tracking.
+- Documentación y capacitación por rol.
+
+## Fase 3 — Backend y autenticación
+
+- Apps Script + Sheets conectados al frontend.
+- Login/sesiones.
+- RBAC.
+- Repositorios remotos.
+- Órdenes y eventos idempotentes.
+- LockService para asignación.
+- Catálogo CRUD real por comercio.
+- Direcciones y zonas iniciales.
+
+## Fase 4 — Pagos y conciliación
+
+- Mercado Pago Checkout Pro.
+- Webhooks.
+- Estados de pago separados.
+- Comisión congelada por orden.
+- Cashback ledger.
+- Refunds y conciliación inicial.
+
+## Fase 5 — Despacho y operación avanzada
+
+- Ubicación de repartidores.
+- Elegibilidad y radio.
+- Ofertas escalonadas.
+- Notificaciones.
+- Mapas y ETA.
+- Soporte e incidencias.
+
+## Fase 6 — Piloto controlado
+
+- Seguridad.
+- QA móvil.
+- Accesibilidad.
+- Monitoreo.
+- Manuales finales.
+- Capacitación por rol.
+- Métricas de economía unitaria.
