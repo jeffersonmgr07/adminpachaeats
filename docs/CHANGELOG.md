@@ -1,5 +1,28 @@
 # Changelog — Pacha Eats
 
+## 2.1.0 — 21-09-2026
+
+### Añadido — Panel administrativo en vivo
+- Consola admin conectada al store de pedidos real (`pe_demo_orders_v2`), compartido con cliente, restaurante y repartidor.
+- Login demo por roles y control de acceso (RBAC) con protección de rutas: superadmin, administrador, operaciones, soporte, finanzas y marketing.
+- Dashboard en vivo: KPIs (pedidos, activos, entregados, GMV, comisión estimada, incidencias), distribución por estado y alertas.
+- Módulo de Pedidos: filtros (estado/restaurante/búsqueda), panel de detalle (ítems, totales, historial de eventos) y acciones auditadas de incidencia y cancelación con motivo.
+- Módulo de Repartidores: roster, actividad de entregas en vivo y aprobación/suspensión (demo).
+- Módulo de Comisiones: tasa configurable y liquidación estimada por comercio.
+- Módulo de Cupones: CRUD real en `localStorage` (`pe_coupons`).
+- Módulo de Configuración: parámetros generales, matriz de permisos y reinicio de datos demo.
+- Nuevos archivos: `assets/js/admin.js`, `assets/css/admin.css`, `admin/configuracion.html`.
+
+### Cambiado
+- `admin/*.html` reescritos para montar el nuevo shell; el login dejó de ser un enlace y ahora valida credenciales demo.
+
+### Corregido
+- El panel admin mostraba datos estáticos de `orders.json`; ahora refleja la operación real en vivo.
+
+### Notas
+- `assets/js/dashboard.js` quedó obsoleto (conservado, ya no se usa).
+- Autenticación aún es demo (sin backend); se migra en la Fase 3.
+
 ## 2.0 — 23-08-2026
 
 ### Cliente

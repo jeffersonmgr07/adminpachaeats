@@ -90,7 +90,21 @@ python3 -m http.server 8080
 - Correo: `rider@pachaeats.demo`
 - Contraseña: `demo123`
 
-Las credenciales aún son visuales; no existe autenticación productiva en esta fase.
+### Consola administrativa (v2.1.0)
+
+Acceso en `admin/` (login por roles, contraseña `demo123`):
+
+| Rol | Correo | Ve |
+|-----|--------|----|
+| Superadmin | `admin@pachaeats.demo` | Todo |
+| Operaciones | `ops@pachaeats.demo` | Dashboard, Pedidos, Repartidores |
+| Soporte | `soporte@pachaeats.demo` | Dashboard, Pedidos |
+| Finanzas | `finanzas@pachaeats.demo` | Dashboard, Comisiones |
+| Marketing | `marketing@pachaeats.demo` | Dashboard, Cupones |
+
+Para probar la operación en vivo: crea un pedido desde la web del cliente y entra al admin (superadmin) → aparecerá en el dashboard y en Pedidos; ahí puedes ver el detalle, registrar una incidencia o cancelar con motivo. En Cupones puedes crear descuentos y en Comisiones ajustar la tasa.
+
+Las credenciales son de demostración; la autenticación del restaurante/repartidor aún es visual y la del admin guarda la sesión solo en el navegador. No hay autenticación productiva todavía (llega en la Fase 3).
 
 ## GitHub Pages
 

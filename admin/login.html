@@ -1,1 +1,45 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pacha Eats · Login Administrador</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body data-base="../"><script src="../assets/js/app.js"></script><script>mountLayout('../')</script><main><section class="page-title"><div class="container"><h1>Acceso administrador</h1><p>Acceso discreto para aliados, no destacado en el home del cliente.</p></div></section><section class="section"><div class="container form-card"><div class="form-grid"><div class="field"><label>Email</label><input></div><div class="field"><label>Contraseña</label><input type="password"></div></div><a class="btn btn-primary" href="dashboard.html" style="margin-top:16px">Ingresar</a></div></section></main><script src="../assets/js/pages.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ef2b2d">
+  <title>Pacha Eats · Acceso administrador</title>
+  <meta name="description" content="Consola administrativa de Pacha Eats.">
+  <link rel="icon" href="../assets/img/logos/Logo1.png">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-login-page">
+  <main class="admin-login-card">
+    <div class="brand-line"><img src="../assets/img/logos/Logo1.png" alt=""><strong>Pacha Eats</strong></div>
+    <h1>Consola administrativa</h1>
+    <p class="sub">Acceso para el equipo de operación de Pacha Eats.</p>
+    <form id="adminLoginForm" novalidate>
+      <label>Correo
+        <input class="field-control" type="email" name="email" autocomplete="username" placeholder="tu@pachaeats.demo" required>
+      </label>
+      <label>Contraseña
+        <input class="field-control" type="password" name="password" autocomplete="current-password" placeholder="••••••" required>
+      </label>
+      <p id="adminLoginFeedback" class="admin-feedback error" hidden></p>
+      <button class="portal-btn primary" type="submit">Ingresar</button>
+    </form>
+    <div class="demo-accounts">
+      <h4>Cuentas demo</h4>
+      <p>Toca una para autocompletar. Contraseña: <strong>demo123</strong></p>
+      <div class="demo-chips">
+        <button type="button" data-demo-fill="admin@pachaeats.demo">Superadmin</button>
+        <button type="button" data-demo-fill="ops@pachaeats.demo">Operaciones</button>
+        <button type="button" data-demo-fill="soporte@pachaeats.demo">Soporte</button>
+        <button type="button" data-demo-fill="finanzas@pachaeats.demo">Finanzas</button>
+        <button type="button" data-demo-fill="marketing@pachaeats.demo">Marketing</button>
+      </div>
+      <p class="demo-note">Autenticación de demostración (solo en este navegador). No es un backend real; se reemplazará por Apps Script en la Fase 3.</p>
+    </div>
+  </main>
+  <script src="../assets/js/admin.js"></script>
+  <script>Admin.initLogin()</script>
+</body>
+</html>

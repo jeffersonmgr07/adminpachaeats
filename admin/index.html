@@ -1,1 +1,12 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=login.html"><title>Pacha Eats Admin</title><script>location.replace('login.html')</script></head><body><a href="login.html">Ir a administración</a></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Pacha Eats · Admin</title>
+  <script>
+    try { location.replace(localStorage.getItem('pe_admin_session') ? 'dashboard.html' : 'login.html'); }
+    catch (e) { location.replace('login.html'); }
+  </script>
+</head>
+<body><a href="login.html">Ir a la consola administrativa</a></body>
+</html>

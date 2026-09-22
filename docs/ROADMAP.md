@@ -18,6 +18,14 @@
 - PIN y tracking.
 - Documentación y capacitación por rol.
 
+## Fase 2.5 — Consola administrativa en vivo ✅
+
+- Panel admin conectado al store de pedidos real.
+- Login demo por roles y RBAC con protección de rutas.
+- Dashboard, gestión de pedidos con incidencias/cancelación auditada.
+- Repartidores, comisiones configurables y CRUD de cupones.
+- (Autenticación y persistencia reales llegan en la Fase 3.)
+
 ## Fase 3 — Backend y autenticación
 
 - Apps Script + Sheets conectados al frontend.
