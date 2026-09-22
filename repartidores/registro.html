@@ -1,1 +1,65 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pacha Eats · Registro repartidor</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body data-base="../"><script src="../assets/js/app.js"></script><script>mountLayout('../')</script><main><section class="page-title"><div class="container"><h1>Registro repartidor</h1><p>Afiliación para moto, auto, bicicleta o reparto a pie.</p></div></section><section class="section"><div class="container form-card"><div class="form-grid"><div class="field"><label>Nombre completo</label><input></div><div class="field"><label>DNI</label><input></div><div class="field"><label>Celular</label><input></div><div class="field"><label>Vehículo</label><select><option>Moto</option><option>Auto</option><option>Bicicleta</option><option>A pie</option></select></div><div class="field"><label>Placa</label><input></div><div class="field"><label>Licencia</label><input></div></div><button class="btn btn-primary" style="margin-top:16px">Enviar validación</button></div></section></main><script src="../assets/js/pages.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ef2b2d">
+  <title>Pacha Eats · Registro repartidor</title>
+  <link rel="icon" href="../assets/img/logos/Logo1.png">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/pe-config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/auth.js"></script>
+</head>
+<body class="admin-login-page">
+  <main class="admin-login-card" style="max-width:520px">
+    <div class="brand-line"><img src="../assets/img/logos/Logo1.png" alt=""><strong>Pacha Eats</strong></div>
+    <h1>Registro de repartidor</h1>
+    <p class="sub">Crea tu cuenta. Quedará <strong>pendiente de aprobación</strong> por Pacha Eats.</p>
+    <form id="regForm" novalidate>
+      <label>Nombre completo<input class="field-control" name="full_name" autocomplete="name" placeholder="Tu nombre" required></label>
+      <div class="coupon-form-row">
+        <label>Celular<input class="field-control" name="phone" inputmode="tel" placeholder="999 999 999"></label>
+        <label>Vehículo
+          <select class="select-control" name="vehicle_type">
+            <option>Moto</option><option>Auto</option><option>Bicicleta</option><option>A pie</option>
+          </select>
+        </label>
+      </div>
+      <label>Placa (si aplica)<input class="field-control" name="plate" placeholder="ABC-123"></label>
+      <hr style="border:none;border-top:1px dashed var(--line);margin:6px 0">
+      <label>Correo (para iniciar sesión)<input class="field-control" type="email" name="email" autocomplete="email" placeholder="repartidor@correo.com" required></label>
+      <label>Contraseña<input class="field-control" type="password" name="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" required minlength="6"></label>
+      <p id="fb" class="admin-feedback error" hidden></p>
+      <button class="portal-btn primary" type="submit" id="submitBtn">Enviar validación</button>
+    </form>
+    <div id="okBox" hidden>
+      <p class="admin-feedback ok">✓ ¡Registro enviado! Tu cuenta quedó <strong>pendiente de aprobación</strong>. Un administrador de Pacha Eats la revisará.</p>
+      <a class="portal-btn primary" href="login.html" style="width:100%;justify-content:center">Ir a iniciar sesión</a>
+    </div>
+    <p class="demo-note" style="margin-top:16px">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+    <p class="demo-note" id="demoNote" hidden>Modo demo: el registro real se activa cuando conectes Supabase.</p>
+  </main>
+  <script>
+    (function () {
+      var f = document.getElementById('regForm'), fb = document.getElementById('fb'), btn = document.getElementById('submitBtn');
+      if (!PachaAuth.isReal()) document.getElementById('demoNote').hidden = false;
+      f.addEventListener('submit', async function (e) {
+        e.preventDefault(); fb.hidden = true;
+        if (!PachaAuth.isReal()) { fb.textContent = 'El registro real requiere Supabase configurado (modo demo activo).'; fb.hidden = false; return; }
+        btn.disabled = true; btn.textContent = 'Enviando…';
+        var r = await PachaAuth.register({
+          role: 'DRIVER', email: f.email.value, password: f.password.value,
+          full_name: f.full_name.value, phone: f.phone.value,
+          vehicle_type: f.vehicle_type.value, plate: f.plate.value
+        });
+        if (!r.ok) { fb.textContent = r.error; fb.hidden = false; btn.disabled = false; btn.textContent = 'Enviar validación'; return; }
+        f.hidden = true; document.getElementById('okBox').hidden = false;
+      });
+    })();
+  </script>
+</body>
+</html>

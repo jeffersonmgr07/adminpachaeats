@@ -1,1 +1,51 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pacha Eats · Login cliente</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body data-base="../"><script src="../assets/js/app.js"></script><script>mountLayout('../')</script><main><section class="page-title"><div class="container"><h1>Acceso cliente</h1><p>Inicio de sesión preparado para Firebase/Auth propio.</p></div></section><section class="section"><div class="container form-card"><div class="form-grid"><div class="field"><label>Email o celular</label><input></div><div class="field"><label>Contraseña</label><input type="password"></div></div><a class="btn btn-primary" href="perfil.html" style="margin-top:16px">Ingresar</a></div></section></main><script src="../assets/js/pages.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ef2b2d">
+  <title>Pacha Eats · Acceso cliente</title>
+  <link rel="icon" href="../assets/img/logos/Logo1.png">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/pe-config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/auth.js"></script>
+</head>
+<body class="admin-login-page">
+  <main class="admin-login-card">
+    <div class="brand-line"><img src="../assets/img/logos/Logo1.png" alt=""><strong>Pacha Eats</strong></div>
+    <h1>Iniciar sesión</h1>
+    <p class="sub">Ingresa para pedir, ver tu historial y seguir tus entregas.</p>
+    <form id="loginForm" novalidate>
+      <label>Correo
+        <input class="field-control" type="email" name="email" autocomplete="username" placeholder="tucorreo@ejemplo.com" required>
+      </label>
+      <label>Contraseña
+        <input class="field-control" type="password" name="password" autocomplete="current-password" placeholder="••••••" required>
+      </label>
+      <p id="fb" class="admin-feedback error" hidden></p>
+      <button class="portal-btn primary" type="submit" id="submitBtn">Ingresar</button>
+    </form>
+    <p class="demo-note" style="margin-top:16px">¿No tienes cuenta? <a href="registro.html">Crear cuenta de cliente</a> · <a href="../index.html">Volver al inicio</a></p>
+    <p class="demo-note" id="demoNote" hidden>Modo demo: el backend aún no está configurado; se te llevará al perfil de ejemplo.</p>
+  </main>
+  <script>
+    (function () {
+      var f = document.getElementById('loginForm'), fb = document.getElementById('fb'), btn = document.getElementById('submitBtn');
+      if (!PachaAuth.isReal()) document.getElementById('demoNote').hidden = false;
+      f.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        fb.hidden = true;
+        if (!PachaAuth.isReal()) { location.href = 'perfil.html'; return; }
+        btn.disabled = true; btn.textContent = 'Ingresando…';
+        var r = await PachaAuth.login(f.email.value, f.password.value);
+        if (!r.ok) { fb.textContent = r.error; fb.hidden = false; btn.disabled = false; btn.textContent = 'Ingresar'; return; }
+        location.href = PachaAuth.homeFor(r.role, '../');
+      });
+    })();
+  </script>
+</body>
+</html>

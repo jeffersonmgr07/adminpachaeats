@@ -1,1 +1,52 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=index.html"><title>Pacha Eats Restaurantes</title><script>location.replace('index.html')</script></head><body><a href="index.html">Ir al portal de restaurantes</a></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ef2b2d">
+  <title>Pacha Eats · Acceso restaurante</title>
+  <link rel="icon" href="../assets/img/logos/Logo1.png">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/pe-config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script>
+    // En modo demo se mantiene el portal de demostración actual.
+    if ((window.PE_BACKEND || 'demo') !== 'supabase') location.replace('index.html');
+  </script>
+</head>
+<body class="admin-login-page">
+  <main class="admin-login-card">
+    <div class="brand-line"><img src="../assets/img/logos/Logo1.png" alt=""><strong>Pacha Eats</strong></div>
+    <h1>Portal de restaurante</h1>
+    <p class="sub">Ingresa con la cuenta de tu comercio.</p>
+    <form id="loginForm" novalidate>
+      <label>Correo
+        <input class="field-control" type="email" name="email" autocomplete="username" placeholder="restaurante@correo.com" required>
+      </label>
+      <label>Contraseña
+        <input class="field-control" type="password" name="password" autocomplete="current-password" placeholder="••••••" required>
+      </label>
+      <p id="fb" class="admin-feedback error" hidden></p>
+      <button class="portal-btn primary" type="submit" id="submitBtn">Ingresar</button>
+    </form>
+    <p class="demo-note" style="margin-top:16px">¿Quieres afiliar tu restaurante? <a href="registro.html">Regístralo aquí</a> · <a href="../index.html">Inicio</a></p>
+  </main>
+  <script>
+    (function () {
+      var f = document.getElementById('loginForm'), fb = document.getElementById('fb'), btn = document.getElementById('submitBtn');
+      f.addEventListener('submit', async function (e) {
+        e.preventDefault(); fb.hidden = true;
+        btn.disabled = true; btn.textContent = 'Ingresando…';
+        var r = await PachaAuth.login(f.email.value, f.password.value);
+        if (!r.ok) { fb.textContent = r.error; fb.hidden = false; btn.disabled = false; btn.textContent = 'Ingresar'; return; }
+        if (r.role !== 'RESTAURANT' && !PachaAuth.ROLE_HOME[r.role]) { fb.textContent = 'Esta cuenta no es de restaurante.'; fb.hidden = false; btn.disabled = false; btn.textContent = 'Ingresar'; return; }
+        location.href = PachaAuth.homeFor(r.role, '../');
+      });
+    })();
+  </script>
+</body>
+</html>

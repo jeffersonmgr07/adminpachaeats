@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ef2b2d">
+  <title>Pacha Eats · Crear cuenta</title>
+  <link rel="icon" href="../assets/img/logos/Logo1.png">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/pe-config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/auth.js"></script>
+</head>
+<body class="admin-login-page">
+  <main class="admin-login-card">
+    <div class="brand-line"><img src="../assets/img/logos/Logo1.png" alt=""><strong>Pacha Eats</strong></div>
+    <h1>Crear cuenta de cliente</h1>
+    <p class="sub">Regístrate para hacer pedidos en Pacha Eats.</p>
+    <form id="regForm" novalidate>
+      <label>Nombre completo
+        <input class="field-control" name="full_name" autocomplete="name" placeholder="Tu nombre" required>
+      </label>
+      <label>Celular
+        <input class="field-control" name="phone" inputmode="tel" autocomplete="tel" placeholder="999 999 999">
+      </label>
+      <label>Correo
+        <input class="field-control" type="email" name="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+      </label>
+      <label>Contraseña
+        <input class="field-control" type="password" name="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" required minlength="6">
+      </label>
+      <p id="fb" class="admin-feedback error" hidden></p>
+      <button class="portal-btn primary" type="submit" id="submitBtn">Crear cuenta</button>
+    </form>
+    <div id="okBox" hidden>
+      <p class="admin-feedback ok">✓ ¡Cuenta creada! Ya puedes iniciar sesión.</p>
+      <a class="portal-btn primary" href="login.html" style="width:100%;justify-content:center">Ir a iniciar sesión</a>
+    </div>
+    <p class="demo-note" style="margin-top:16px">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+    <p class="demo-note" id="demoNote" hidden>Modo demo: el registro real se activa cuando conectes Supabase.</p>
+  </main>
+  <script>
+    (function () {
+      var f = document.getElementById('regForm'), fb = document.getElementById('fb'), btn = document.getElementById('submitBtn');
+      if (!PachaAuth.isReal()) document.getElementById('demoNote').hidden = false;
+      f.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        fb.hidden = true;
+        if (!PachaAuth.isReal()) { fb.textContent = 'El registro real requiere Supabase configurado (modo demo activo).'; fb.hidden = false; return; }
+        btn.disabled = true; btn.textContent = 'Creando…';
+        var r = await PachaAuth.register({ role: 'CLIENT', email: f.email.value, password: f.password.value, full_name: f.full_name.value, phone: f.phone.value });
+        if (!r.ok) { fb.textContent = r.error; fb.hidden = false; btn.disabled = false; btn.textContent = 'Crear cuenta'; return; }
+        f.hidden = true; document.getElementById('okBox').hidden = false;
+      });
+    })();
+  </script>
+</body>
+</html>

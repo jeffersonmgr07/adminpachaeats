@@ -1,5 +1,20 @@
 # Changelog — Pacha Eats
 
+## 2.2.0 — 22-09-2026
+
+### Añadido — Fundación del backend real (Fase 3.1 · Supabase)
+- Esquema completo de base de datos en `supabase/schema.sql`: 10 tablas (profiles, restaurants, categories, products, addresses, drivers, orders, order_items, order_events, coupons), enums de dominio, PostGIS para ubicaciones, triggers (perfil al registrarse, código/PIN de pedido, updated_at), función `nearest_drivers()` para asignación por cercanía, y políticas RLS por rol.
+- Semilla demo borrable en `supabase/seed_demo.sql` (todo marcado como demo + `wipe_demo_data()`).
+- Capa de autenticación en el frontend: `assets/js/pe-config.js`, `assets/js/supabase-client.js` y `assets/js/auth.js` (registro/login/logout/sesión/ruteo por rol), **config-gated**: sin claves, el sitio sigue en modo demo.
+- Login y registro reales (Supabase Auth) para cliente, restaurante y repartidor. El registro de restaurante crea también su ficha en estado PENDING; el de repartidor crea su ficha de repartidor.
+- Guía `docs/08-INSTALACION-SUPABASE.md` y modelo `docs/03-BASE-DE-DATOS.md`.
+
+### Cambiado
+- `clientes/login.html`, `restaurantes/login.html`, `repartidores/login.html` y los `registro.html` reescritos como páginas de auth reales (con fallback a demo). Nueva `clientes/registro.html`.
+
+### Notas
+- El marketplace del cliente y el panel admin todavía leen el store demo; su migración a Supabase es la Fase 3.3. La validación en vivo del backend se realiza al desplegar con las claves del proyecto.
+
 ## 2.1.0 — 21-09-2026
 
 ### Añadido — Panel administrativo en vivo

@@ -8,7 +8,8 @@
 - **Frontend activo:** sitio estático (HTML + CSS + JavaScript vanilla), desplegable en GitHub Pages sin build.
 - **Estado compartido demo:** `localStorage` (clave `pe_demo_orders_v2`) sincroniza pedidos entre cliente, restaurante, repartidor y **admin** en el mismo navegador/origen.
 - **Catálogo:** `assets/data/*.json`.
-- **Backend objetivo (Fase 3):** Google Apps Script + Sheets. Existe `appscript-backend/` (implementación completa) y `apps-script/` (versión mínima). **Ninguno está conectado todavía** (`assets/js/api-appscript.js` tiene URL placeholder).
+- **Backend real (Fase 3): Supabase** (Postgres + Auth + Realtime + Storage + PostGIS) — **elegido**. La fundación (esquema + auth) ya está construida; se activa poniendo las claves en `assets/js/pe-config.js` (ver `docs/08-INSTALACION-SUPABASE.md`). Sin claves, el sitio sigue en modo demo.
+- **Legado:** `appscript-backend/` y `apps-script/` (Apps Script) quedan como referencia, no se usan.
 - **Pista paralela experimental:** `frontend/` (React + Vite). No integrada con la operación; mantener como experimento, no como producción.
 
 ## Completado (verificado en código y/o pruebas)
@@ -41,15 +42,23 @@ Consola conectada al **mismo store de pedidos en vivo** (antes leía datos está
 
 **Validación:** 17/17 pruebas automatizadas (Chromium headless / Playwright): creación de pedido desde el cliente visible en vivo en el admin, incidencia y cancelación persistidas con evento auditado, CRUD de cupones, cambio de tasa de comisión y bloqueo RBAC por rol. Sin errores de consola en las páginas del admin.
 
+### Backend real — Fase 3.1 (Supabase) — **v2.2.0 (nuevo)** ✅
+Fundación construida (activa al poner las claves en `pe-config.js`):
+- **Esquema completo** (`supabase/schema.sql`): 10 tablas, enums de dominio, PostGIS, triggers, `nearest_drivers()` y RLS por rol. Semilla demo borrable.
+- **Auth real** (Supabase Auth) con registro/login/ruteo por rol para **cliente, restaurante y repartidor**. El registro de restaurante crea su ficha PENDING; el de repartidor su ficha de repartidor.
+- **Config-gated:** sin claves, el sitio sigue en modo demo sin romperse.
+
+**Validación:** estructura SQL verificada (10 tablas, 24 políticas, 7 funciones, 7 triggers, 14 índices); JS `node --check`; modo demo 11/11 sin errores; lógica de `auth.js` 7/7 contra un mock de supabase-js. La validación *en vivo* del backend la realiza el usuario al desplegar con sus claves.
+
 ## En desarrollo
 
-- (Ninguno activo tras el cierre de v2.1.0).
+- Fase 3.1 entregada; pendiente que el usuario cree el proyecto Supabase y conecte las claves (guía en `docs/08-INSTALACION-SUPABASE.md`).
 
 ## Siguiente (recomendado, por dependencia técnica)
 
-1. **Cupones aplicables en checkout**: consumir `pe_coupons` en `checkout.html`/`app.js` (validar mínimo, vigencia y usos; recalcular total). El contrato de datos ya existe.
-2. **Autenticación unificada demo**: extender el patrón de sesión/roles del admin a los portales de restaurante y repartidor.
-3. **Fase 3 — Backend real**: desplegar `appscript-backend/`, conectar `api-appscript.js`, migrar el store de `localStorage` a Sheets con órdenes idempotentes y `LockService`.
+1. **F3.3 — Lectura real en la app**: que el marketplace del cliente y el panel admin lean de Supabase (hoy usan el store demo). Al terminar, un restaurante registrado y aprobado aparece en la web.
+2. **F3.2 — Onboarding de comercios**: carta/perfil editable y fotos (Storage), aprobación desde el panel.
+3. **F3.4 — Repartidores + cercanía**: online/posición + ofertas escalonadas por distancia + notificaciones (Realtime).
 
 ## Backlog
 

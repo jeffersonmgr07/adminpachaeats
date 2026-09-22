@@ -1,1 +1,67 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pacha Eats · Afiliar restaurante</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body data-base="../"><script src="../assets/js/app.js"></script><script>mountLayout('../')</script><main><section class="page-title"><div class="container"><h1>Afiliar restaurante</h1><p>Registro inicial para validar negocio, ubicación, carta y promociones Prime.</p></div></section><section class="section"><div class="container form-card"><div class="form-grid"><div class="field"><label>Nombre comercial</label><input></div><div class="field"><label>RUC / documento</label><input></div><div class="field"><label>Dirección</label><input></div><div class="field"><label>WhatsApp</label><input></div><div class="field"><label>Tipo de comida</label><input></div><div class="field"><label>Horario</label><input></div></div><button class="btn btn-primary" style="margin-top:16px">Enviar solicitud</button></div></section></main><script src="../assets/js/pages.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ef2b2d">
+  <title>Pacha Eats · Afiliar restaurante</title>
+  <link rel="icon" href="../assets/img/logos/Logo1.png">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/pe-config.js"></script>
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="../assets/js/auth.js"></script>
+</head>
+<body class="admin-login-page">
+  <main class="admin-login-card" style="max-width:520px">
+    <div class="brand-line"><img src="../assets/img/logos/Logo1.png" alt=""><strong>Pacha Eats</strong></div>
+    <h1>Afiliar restaurante</h1>
+    <p class="sub">Crea la cuenta de tu comercio. Quedará <strong>pendiente de aprobación</strong> por Pacha Eats.</p>
+    <form id="regForm" novalidate>
+      <div class="coupon-form-row">
+        <label>Nombre comercial<input class="field-control" name="name" placeholder="Mi Restaurante" required></label>
+        <label>Tipo de comida<input class="field-control" name="category" placeholder="Pollos, chifa…"></label>
+      </div>
+      <label>Dirección<input class="field-control" name="address" placeholder="Av. / Calle, número, distrito"></label>
+      <div class="coupon-form-row">
+        <label>Distrito<input class="field-control" name="district" placeholder="Pachacámac"></label>
+        <label>WhatsApp<input class="field-control" name="phone" inputmode="tel" placeholder="999 999 999"></label>
+      </div>
+      <hr style="border:none;border-top:1px dashed var(--line);margin:6px 0">
+      <label>Correo (para iniciar sesión)<input class="field-control" type="email" name="email" autocomplete="email" placeholder="restaurante@correo.com" required></label>
+      <label>Contraseña<input class="field-control" type="password" name="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" required minlength="6"></label>
+      <p id="fb" class="admin-feedback error" hidden></p>
+      <button class="portal-btn primary" type="submit" id="submitBtn">Enviar solicitud</button>
+    </form>
+    <div id="okBox" hidden>
+      <p class="admin-feedback ok">✓ ¡Restaurante registrado! Tu cuenta y tu comercio quedaron <strong>pendientes de aprobación</strong>. Un administrador de Pacha Eats los revisará.</p>
+      <a class="portal-btn primary" href="login.html" style="width:100%;justify-content:center">Ir a iniciar sesión</a>
+    </div>
+    <p class="demo-note" style="margin-top:16px">¿Ya estás afiliado? <a href="login.html">Inicia sesión</a></p>
+    <p class="demo-note" id="demoNote" hidden>Modo demo: el registro real se activa cuando conectes Supabase.</p>
+  </main>
+  <script>
+    (function () {
+      var f = document.getElementById('regForm'), fb = document.getElementById('fb'), btn = document.getElementById('submitBtn');
+      if (!PachaAuth.isReal()) document.getElementById('demoNote').hidden = false;
+      f.addEventListener('submit', async function (e) {
+        e.preventDefault(); fb.hidden = true;
+        if (!PachaAuth.isReal()) { fb.textContent = 'El registro real requiere Supabase configurado (modo demo activo).'; fb.hidden = false; return; }
+        btn.disabled = true; btn.textContent = 'Enviando…';
+        var reg = await PachaAuth.register({ role: 'RESTAURANT', email: f.email.value, password: f.password.value, full_name: f.name.value, phone: f.phone.value });
+        if (!reg.ok) { fb.textContent = reg.error; fb.hidden = false; btn.disabled = false; btn.textContent = 'Enviar solicitud'; return; }
+        // Si hay sesión (confirmación de correo desactivada), creamos el restaurante.
+        if (reg.session) {
+          var rest = await PachaAuth.createRestaurantForOwner({
+            name: f.name.value, category: f.category.value, address: f.address.value, district: f.district.value, phone: f.phone.value
+          });
+          if (!rest.ok) { fb.textContent = 'Cuenta creada, pero no se pudo registrar el restaurante: ' + rest.error; fb.hidden = false; btn.disabled = false; btn.textContent = 'Enviar solicitud'; return; }
+        }
+        f.hidden = true; document.getElementById('okBox').hidden = false;
+      });
+    })();
+  </script>
+</body>
+</html>
